@@ -5,3 +5,5 @@ project:
   project_url: "https://github.com/linkerd/linkerd2"
   stable_ref: "stable-2.4.0"
   head_ref: "master"
+  ci_system_type: "travis"
+  ci_project_url: "https://travis-ci.org/linkerd/linkerd2"
