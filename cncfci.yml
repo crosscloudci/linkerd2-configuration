@@ -7,3 +7,20 @@ project:
   head_ref: "master"
   ci_system_type: "travis"
   ci_project_url: "https://travis-ci.org/linkerd/linkerd2"
+  images:
+    - "gcr.io/linkerd-io/web"  # web:stable-2.4.0
+    - "gcr.io/linkerd-io/controller"   # controller:stable-2.4.0
+    
+ # Successfully tagged gcr.io/linkerd-io/proxy:git-36681218
+
+    
+    
+# combine image_registry + image_repository + <image tag>
+# stable image tag = stable_ref
+# head image tag = "git-" + commit ref
+
+
+    
+ 
+    
+ 
