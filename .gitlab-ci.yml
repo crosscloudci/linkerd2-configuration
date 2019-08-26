@@ -1,0 +1,34 @@
+stages:
+  - build
+  - package
+
+before_script:
+  - export BASE_URL=${BASE_URL:-$(echo $CI_PROJECT_URL |  cut -d'/' -f1-3)}
+  - >
+    if [ -z "$CROSS_CLOUD_YML" ]; then
+       if [ "$BASE_URL" == "https://gitlab.cncf.ci" ]; then
+          export CROSS_CLOUD_YML="https://raw.githubusercontent.com/CrossCloudCI/cncf-configuration/production/cross-cloud.yml"
+       elif [ "$BASE_URL" == "https://gitlab.staging.cncf.ci" ]; then
+          export CROSS_CLOUD_YML="https://raw.githubusercontent.com/CrossCloudCI/cncf-configuration/staging/cross-cloud.yml"
+       elif [ "$BASE_URL" == "https://gitlab.cidev.cncf.ci" ]; then
+          export CROSS_CLOUD_YML="https://raw.githubusercontent.com/CrossCloudCI/cncf-configuration/integration/cross-cloud.yml"
+       else
+          export CROSS_CLOUD_YML="https://raw.githubusercontent.com/CrossCloudCI/cncf-configuration/master/cross-cloud.yml"
+       fi
+    else
+      export CROSS_CLOUD_YML="$CROSS_CLOUD_YML"
+    fi
+  - source /opt/local/etc/rvmrc ; source /opt/local/etc/profile.d/rvm.sh ; cp -a /opt/local/dashboard /dashboard ; pushd /dashboard ; source /opt/local/.env ; ./bin/update_dashboard ; popd
+  
+compile:
+  image: crosscloudci/debian-openjdk
+  stage: build
+  script:
+    - echo "Compile"
+    
+
+container:
+  stage: package
+  image: crosscloudci/debian-docker
+  script:
+    - echo "Package"
