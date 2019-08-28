@@ -17,7 +17,3 @@ project:
           head_tag: “git-${COMMIT_SHORT8}”
         - image_repository: "gcr.io/linkerd-io/controller"   # controller:git-f535c2d3
           head_tag: “git-${COMMIT_SHORT8}”    
-
-
-
-  
