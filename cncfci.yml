@@ -7,8 +7,9 @@ project:
   head_ref: "master"
   ci_system:
     -
-      ci_system_type: "travis"
+      ci_system_type: "travis-ci"
       ci_project_url: "https://travis-ci.org/linkerd/linkerd2"
+      ci_project_name: "linkerd/linkerd2"
       arch:
         - amd64
       images:
@@ -16,7 +17,3 @@ project:
           head_tag: “git-${COMMIT_SHORT8}”
         - image_repository: "gcr.io/linkerd-io/controller"   # controller:git-f535c2d3
           head_tag: “git-${COMMIT_SHORT8}”    
-
-
-
-  
