@@ -3,7 +3,7 @@ project:
   display_name: Linkerd 2.x
   sub_title: Service Mesh
   project_url: "https://github.com/linkerd/linkerd2"
-  stable_ref: "stable-2.4.0"
+  stable_ref: "stable-2.5.0"
   head_ref: "master"
   ci_system:
     -
