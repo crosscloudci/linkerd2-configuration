@@ -62,7 +62,7 @@ compile:
       else
         echo curl -f -X GET "https://devapi.cncf.ci/ciproxy/v1/ci_status_build/commit_ref?project=linkerd2&ref=${CI_COMMIT_SHA}&arch=AMD64" 
         echo curl -f -X GET "https://devapi.cncf.ci/ciproxy/v1/ci_status_build/commit_ref?project=linkerd2&ref=${CI_COMMIT_SHA}&arch=ARM64" 
-        sleep 100000000
+        # sleep 100000000
         curl -f -X GET "https://devapi.cncf.ci/ciproxy/v1/ci_status_build/commit_ref?project=linkerd2&ref=${CI_COMMIT_SHA}&arch=AMD64" 
         curl -f -X GET "https://devapi.cncf.ci/ciproxy/v1/ci_status_build/commit_ref?project=linkerd2&ref=${CI_COMMIT_SHA}&arch=ARM64" 
        fi
